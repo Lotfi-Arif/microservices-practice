@@ -1,5 +1,49 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/nestjs-microservices/src",
+  "monorepo": true,
+  "root": "apps/nestjs-microservices",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/nestjs-microservices/tsconfig.app.json"
+  },
+  "projects": {
+    "nestjs-microservices": {
+      "type": "application",
+      "root": "apps/nestjs-microservices",
+      "entryFile": "main",
+      "sourceRoot": "apps/nestjs-microservices/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nestjs-microservices/tsconfig.app.json"
+      }
+    },
+    "apps": {
+      "type": "application",
+      "root": "apps/apps",
+      "entryFile": "main",
+      "sourceRoot": "apps/apps/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/apps/tsconfig.app.json"
+      }
+    },
+    "users": {
+      "type": "application",
+      "root": "apps/users",
+      "entryFile": "main",
+      "sourceRoot": "apps/users/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/users/tsconfig.app.json"
+      }
+    },
+    "chat": {
+      "type": "application",
+      "root": "apps/chat",
+      "entryFile": "main",
+      "sourceRoot": "apps/chat/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/chat/tsconfig.app.json"
+      }
+    }
+  }
 }

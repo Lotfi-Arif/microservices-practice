@@ -11,16 +11,7 @@ export class UserMinAggregate {
     email?: string;
 
     @Field(() => String, {nullable:true})
-    password?: string;
-
-    @Field(() => String, {nullable:true})
-    firstName?: string;
-
-    @Field(() => String, {nullable:true})
-    lastName?: string;
-
-    @Field(() => String, {nullable:true})
-    mobile?: string;
+    name?: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

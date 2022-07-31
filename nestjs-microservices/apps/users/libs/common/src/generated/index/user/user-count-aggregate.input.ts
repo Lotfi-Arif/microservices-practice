@@ -11,16 +11,10 @@ export class UserCountAggregateInput {
     email?: true;
 
     @Field(() => Boolean, {nullable:true})
-    password?: true;
+    name?: true;
 
     @Field(() => Boolean, {nullable:true})
-    firstName?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    lastName?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    mobile?: true;
+    posts?: true;
 
     @Field(() => Boolean, {nullable:true})
     createdAt?: true;

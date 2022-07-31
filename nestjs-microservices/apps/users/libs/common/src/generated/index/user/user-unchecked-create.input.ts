@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { UserCreatepostsInput } from './user-createposts.input';
 
 @InputType()
 export class UserUncheckedCreateInput {
@@ -11,16 +12,10 @@ export class UserUncheckedCreateInput {
     email!: string;
 
     @Field(() => String, {nullable:false})
-    password!: string;
+    name!: string;
 
-    @Field(() => String, {nullable:false})
-    firstName!: string;
-
-    @Field(() => String, {nullable:false})
-    lastName!: string;
-
-    @Field(() => String, {nullable:true})
-    mobile?: string;
+    @Field(() => UserCreatepostsInput, {nullable:true})
+    posts?: UserCreatepostsInput;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

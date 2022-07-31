@@ -14,16 +14,10 @@ export class UserGroupBy {
     email!: string;
 
     @Field(() => String, {nullable:false})
-    password!: string;
+    name!: string;
 
-    @Field(() => String, {nullable:false})
-    firstName!: string;
-
-    @Field(() => String, {nullable:false})
-    lastName!: string;
-
-    @Field(() => String, {nullable:true})
-    mobile?: string;
+    @Field(() => [String], {nullable:true})
+    posts?: Array<string>;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;

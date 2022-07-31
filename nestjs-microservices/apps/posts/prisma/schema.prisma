@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTS_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output = "./generated/prisma-client-js"
+}
+
+generator nestgraphql {
+  provider = "node ../../node_modules/prisma-nestjs-graphql"
+  output   = "../libs/common/src/generated/index"
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

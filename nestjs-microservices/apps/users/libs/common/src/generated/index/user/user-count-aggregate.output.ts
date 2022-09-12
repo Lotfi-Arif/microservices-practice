@@ -15,9 +15,6 @@ export class UserCountAggregate {
     name!: number;
 
     @Field(() => Int, {nullable:false})
-    posts!: number;
-
-    @Field(() => Int, {nullable:false})
     createdAt!: number;
 
     @Field(() => Int, {nullable:false})

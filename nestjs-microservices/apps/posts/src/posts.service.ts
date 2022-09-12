@@ -11,7 +11,9 @@ export class PostsService {
   async findOne(postFindOneArgs: Prisma.PostFindUniqueArgs) {
     return this.prisma.post.findUnique(postFindOneArgs);
   }
-
+  async create(postCreateArgs: Prisma.PostCreateArgs) {
+    return this.prisma.post.create(postCreateArgs);
+  }
   getMe(postId: string, select?: any) {
     return this.prisma.post.findUnique({ where: { id: postId }, ...select });
   }

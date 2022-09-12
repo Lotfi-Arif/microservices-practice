@@ -12,7 +12,9 @@ export class UsersService {
   async findOne(userFindOneArgs: Prisma.UserFindUniqueArgs) {
     return this.prisma.user.findUnique(userFindOneArgs);
   }
-
+  async create(userCreateArgs: Prisma.UserCreateArgs) {
+    return this.prisma.user.create(userCreateArgs);
+  }
   getMe(userId: string, select?: any) {
     return this.prisma.user.findUnique({ where: { id: userId }, ...select });
   }

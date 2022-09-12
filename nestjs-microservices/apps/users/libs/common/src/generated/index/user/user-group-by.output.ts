@@ -16,9 +16,6 @@ export class UserGroupBy {
     @Field(() => String, {nullable:false})
     name!: string;
 
-    @Field(() => [String], {nullable:true})
-    posts?: Array<string>;
-
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;
 

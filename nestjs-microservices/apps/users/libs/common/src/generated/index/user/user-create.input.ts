@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { UserCreatepostsInput } from './user-createposts.input';
 
 @InputType()
 export class UserCreateInput {
@@ -13,9 +12,6 @@ export class UserCreateInput {
 
     @Field(() => String, {nullable:false})
     name!: string;
-
-    @Field(() => UserCreatepostsInput, {nullable:true})
-    posts?: UserCreatepostsInput;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

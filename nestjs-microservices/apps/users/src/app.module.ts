@@ -4,17 +4,21 @@ import {
   ApolloFederationDriver,
   ApolloFederationDriverConfig,
 } from '@nestjs/apollo';
-import { UsersResolver } from './users.resolver';
 import { UsersService } from './users.service';
+import { PrismaModule, PrismaService } from 'nestjs-prisma';
 
 @Module({
+  providers: [PrismaService, UsersService],
   imports: [
     GraphQLModule.forRoot<ApolloFederationDriverConfig>({
       driver: ApolloFederationDriver,
-      typePaths: ['**/*.graphql'],
+      cors: false,
       autoSchemaFile: true,
     }),
+    PrismaModule.forRoot({
+      isGlobal: true,
+    }),
   ],
-  providers: [UsersResolver, UsersService],
+  exports: [PrismaService],
 })
 export class AppModule { }

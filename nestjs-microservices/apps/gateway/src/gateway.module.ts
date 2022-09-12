@@ -9,14 +9,13 @@ import { GraphQLModule } from '@nestjs/graphql';
       driver: ApolloGatewayDriver,
       server: {
         // ... Apollo server options
-        cors: true,
+        cors: false,
       },
       gateway: {
         serviceHealthCheck: true,
         supergraphSdl: new IntrospectAndCompose({
           subgraphs: [
-            {name: 'users', url: 'http://localhost:5006/graphql'},
-            {name: 'posts', url: 'http://localhost:5003/graphql'},
+            {name: 'users', url: 'http://localhost:3001/graphql'},
           ]
         })
       }
